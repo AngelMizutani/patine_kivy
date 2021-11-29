@@ -1,0 +1,21 @@
+<TelaCadastro>:
+    FloatLayout:
+
+        MDToolbar:
+            md_bg_color: 1, 1, 1, 0
+            especific_text_color: app.theme_cls.primary_color
+            title: "Cadastro de Exercício"
+            pos_hint: {'top': 1}
+            elevation: 10
+            left_action_items: [['arrow-left', lambda x: root.callback()]]
+        
+        MDTextField:
+            hint_text: 'Nome'
+            pos_hint: {"center_x": 0.5,"center_y": 0.8}
+            size_hint_x: .9
+
+        MDTextField:
+            hint_text: 'Descrição'
+            multiline: True
+            pos_hint: {"center_x": 0.5,"center_y": 0.6}
+            size_hint_x: .9
