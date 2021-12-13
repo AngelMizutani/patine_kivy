@@ -1,4 +1,4 @@
-<TelaExercicio>:
+<TelaExercicio@MDScreen>:
     FloatLayout:
 
         MDToolbar:
@@ -7,7 +7,7 @@
             title: "Patine!"
             pos_hint: {'top': 1}
             elevation: 10
-            right_action_items: [['plus', lambda x: root.callback()]]
+            right_action_items: [['plus', lambda x: root.irParaCadastro()]]
 
         MDLabel:
             text: 'Lista de Exercícios'
@@ -45,3 +45,7 @@
         MDLabel:
             text: 'Desenhe círculos com os patins'
             pos_hint: {"center_x": 0.5,"center_y": 0.4}
+
+    MDFlatButton:
+        text: 'add'
+        on_release: app.root.current = 'cadastro'

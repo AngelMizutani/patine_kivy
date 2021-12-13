@@ -15,15 +15,15 @@ class LiveApp(MDApp, App):
     # *.kv files to watch
     KV_FILES = {
         os.path.join(os.getcwd(), "view/screenmanager.kv"),
-        os.path.join(os.getcwd(), "view/tela_exercicio/telaExercicio.kv"),
-        os.path.join(os.getcwd(), "view/tela_cadastro/telaCadastro.kv"),
+        os.path.join(os.getcwd(), "view/telaExercicio.kv"),
+        os.path.join(os.getcwd(), "view/telaCadastro.kv"),
     }
 
     # class to watch from *.py files
     CLASSES = {
         "MainScreenManager": "view.screenmanager",
-        "TelaExercicio": "view.tela_exercicio.telaExercicio",
-        "TelaCadastro": "view.tela_cadastro.telaCadastro"
+        "TelaExercicio": "view.telaExercicio",
+        "TelaCadastro": "view.telaCadastro"
     }
 
     # auto reload path
