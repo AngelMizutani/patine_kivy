@@ -2,7 +2,7 @@ import sqlite3
 from dominio.interfaces.exercicio_DAO import ExercicioDAO
 
 
-class exercicioDaoImpl(ExercicioDAO):
+class ExercicioDaoImpl(ExercicioDAO):
     def __init__(self):
         self.conexao = sqlite3.connect("patine_kivy")
         self.cursor = self.conexao.cursor()
