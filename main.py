@@ -1,42 +1,19 @@
-import os
-
-
-from kivymd.app import MDApp
-from kaki.app import App
-from kivy.factory import Factory
+from kivymd.app import MDApp 
+from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
 
-# main app class for kaki app with kivymd modules
-class LiveApp(MDApp, App):
-    Window.size = (400, 600)
+from view.tela_cadastro.telacadastroexercicio import TelaCadastroExercicio
+from view.tela_lista_exercicios.telalistaexercicios import TelaListaExercicios
+class Gerenciador(ScreenManager):
+    pass
 
-    DEBUG = 1 # set this to 0 make live app not working
+class Main(MDApp):
+    Window.size = (350, 600)
 
-    # *.kv files to watch
-    KV_FILES = {
-        os.path.join(os.getcwd(), "view/screenmanager.kv"),
-        os.path.join(os.getcwd(), "view/telaExercicio.kv"),
-        os.path.join(os.getcwd(), "view/telaCadastro.kv"),
-    }
-
-    # class to watch from *.py files
-    CLASSES = {
-        "MainScreenManager": "view.screenmanager",
-        "TelaExercicio": "view.telaExercicio",
-        "TelaCadastro": "view.telaCadastro"
-    }
-
-    # auto reload path
-    AUTORELOADER_PATHS = [
-        (".", {"recursive": True}),
-    ]
-
-
-    def build_app(self, **kwargs):
+    def build(self):
         self.theme_cls.primary_palette = "Purple"
-        return Factory.MainScreenManager()
+        return Gerenciador()
 
-
-# finally, run the app
 if __name__ == "__main__":
-    LiveApp().run()
+    app = Main()
+    app.run()

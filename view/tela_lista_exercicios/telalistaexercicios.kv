@@ -1,0 +1,76 @@
+<TelaListaExercicios>:
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: 'Patine!'
+            right_action_items: [['plus-thick', lambda x: root.irParaCadastro()], ['reload', lambda x: root.recarregar()]]
+        ScrollView:
+            MDList:
+                id: container
+
+<ExercicioItem>:
+    id: item
+    on_press: root.verDetalhe(item)
+    on_size: 
+        self.ids._right_container.width = item_container.width - 40
+        self.ids._right_container.x = item_container.width - 45
+
+    ItemContainer:
+        id: item_container
+
+        MDIconButton:
+            icon: 'notebook-edit-outline'
+            on_release: root.abrirDialogEditar(item)
+
+        MDIconButton:
+            icon: 'trash-can-outline'
+            on_release: root.abrirDialogExcluir(item)
+
+<DialogEditar>:
+    edit_nome: ex_nome
+    edit_descricao: ex_descricao
+    edit_imagem: ex_url_imagem
+    orientation: 'vertical'
+    spacing: '10dp'
+    size_hint: 1, None
+    height: '500dp'
+
+    MDTextField:
+        id: ex_nome
+        hint_text: 'Nome do Exercício'
+        helper_text: 'Campo obrigatório'
+        helper_text_mode: 'on_focus'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        size_hint_x: None
+        width: 300
+        required: True
+        
+    MDTextField:
+        id: ex_descricao
+        multiline: True
+        hint_text: 'Descrição'
+        helper_text: 'Campo obrigatório'
+        helper_text_mode: 'on_focus'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        size_hint_x: None
+        width: 300
+        required: True
+
+    MDTextField:
+        id: ex_url_imagem
+        hint_text: 'Url Imagem'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint_x: None
+        width: 300
+
+    MDLabel:
+        text: ''
+        id: edit_texto_erro
+        theme_text_color: 'Error'
+        pos_hint: {'center_x': 0.7,'center_y': 0.4}
+
+    MDRectangleFlatButton:
+        text: 'SALVAR'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+        on_press: root.editarItem()
+                    

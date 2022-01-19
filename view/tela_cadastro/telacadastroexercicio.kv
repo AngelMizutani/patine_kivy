@@ -1,0 +1,54 @@
+<TelaCadastroExercicio>:
+    nome_exercicio: nome
+    descricao_exercicio: descricao
+    url_imagem_exercicio: url_imagem
+
+    MDBoxLayout:
+        id: box
+        orientation: 'vertical'
+        spacing: 20
+
+        MDToolbar:
+            title: 'Cadastrar Exercício'
+            left_action_items: [['arrow-left', lambda x: root.irParaLista()]]
+        
+        MDTextField:
+            id: nome
+            hint_text: 'Nome do Exercício'
+            helper_text: 'Campo obrigatório'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            size_hint_x: None
+            width: 300
+            required: True
+        
+        MDTextField:
+            id: descricao
+            multiline: True
+            hint_text: 'Descrição'
+            helper_text: 'Campo obrigatório'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint_x: None
+            width: 300
+            required: True
+
+        MDTextField:
+            id: url_imagem
+            hint_text: 'Url Imagem'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint_x: None
+            width: 300
+
+        MDLabel:
+            text: ''
+            id: texto_erro
+            theme_text_color: 'Error'
+            pos_hint: {'center_x': 0.7,'center_y': 0.4}
+
+        MDRectangleFlatButton:
+            text: 'Salvar'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            on_press: root.salvar()
+
+        Widget:
