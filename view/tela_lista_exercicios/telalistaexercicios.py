@@ -215,9 +215,13 @@ class DialogEditar(MDBoxLayout):
 
     def carregarCampos(self, ex_id):
         exercicio = service.listarUm(ex_id)
+        
         self.edit_nome.text = exercicio[0][1]
         self.edit_descricao.text = exercicio[0][2]
-        self.edit_imagem.text = exercicio[0][3]
+        if exercicio[0][3] is None:
+            self.edit_imagem.text = ''
+        else:
+            self.edit_imagem.text = exercicio[0][3]
 
     def editarItem(self):
         label = self.ids.edit_texto_erro

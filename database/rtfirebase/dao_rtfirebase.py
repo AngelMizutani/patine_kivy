@@ -1,14 +1,11 @@
 import firebase_admin
 from firebase_admin import db
 
-import os
-
 cred_obj = firebase_admin.credentials.Certificate('database/rtfirebase/credenciais/fir-992d3-firebase-adminsdk-ig3wk-7bce28c352.json')
 default_app = firebase_admin.initialize_app(cred_obj, {
             'databaseURL': 'https://fir-992d3.firebaseio.com/'
             })
 ref = db.reference("/exercicios")
-
 
 class RTFirebase:
 
