@@ -4,6 +4,7 @@ from kivy.core.window import Window
 
 from view.tela_cadastro.telacadastroexercicio import TelaCadastroExercicio
 from view.tela_lista_exercicios.telalistaexercicios import TelaListaExercicios
+from view.tela_email.telaemail import TelaEmail
 class Gerenciador(ScreenManager):
     pass
 

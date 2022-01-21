@@ -1,0 +1,68 @@
+<TelaEmail>:
+    email_text: email
+    assunto_text: assunto
+    mensagem_text: mensagem
+
+    MDBoxLayout:
+        id: box
+        orientation: 'vertical'
+        spacing: 20
+
+        MDToolbar:
+            title: 'Fale Conosco'
+            left_action_items: [['arrow-left', lambda x: root.irParaLista()]]
+
+        MDLabel:
+            text: "Dúvidas? Elogios? Sugestões? Sua opinião é muito importante para nós"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        
+        MDTextField:
+            id: email
+            hint_text: 'Seu endereço de email'
+            helper_text: 'Campo obrigatório'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            size_hint_x: None
+            width: 300
+            required: True
+        
+        MDTextField:
+            id: assunto
+            hint_text: 'Assunto'
+            helper_text: 'Campo obrigatório'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint_x: None
+            width: 300
+            required: True
+
+        MDTextField:
+            id: mensagem
+            multiline: True
+            hint_text: 'Mensagem'
+            helper_text: 'Campo obrigatório'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint_x: None
+            width: 300
+            required: True
+
+        MDLabel:
+            text: ''
+            id: texto_info
+            pos_hint: {'center_x': 0.7,'center_y': 0.4}
+
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 40
+            spacing: 80
+
+            MDRectangleFlatButton:
+                text: 'Enviar'
+                on_press: root.enviarEmail()
+
+            MDRectangleFlatButton:
+                text: 'Cancelar'
+                on_press: root.irParaLista()
+
+        Widget:

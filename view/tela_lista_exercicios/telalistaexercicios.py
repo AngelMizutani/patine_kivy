@@ -74,6 +74,10 @@ class TelaListaExercicios(MDScreen):
     def _my_on_enter(self, *largs):
         self.listarExercicios()
 
+    def irParaEmail(self):
+        self.parent.current = 'email'
+        self.limpar()
+
     def irParaCadastro(self):
         self.parent.current = 'cadastro'
         self.limpar()
