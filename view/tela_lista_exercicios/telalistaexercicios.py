@@ -14,30 +14,6 @@ from service.exercicio_service import ExercicioService
 
 Builder.load_file("view/tela_lista_exercicios/telalistaexercicios.kv")
 
-"""
-***Próximos passos: ***
-
-[ok] Criar a entidade Exercicio
-    Criar objeto exercicio e substituir nos itens lista
-
-[ok] Criar BD e scripts
-    Associar os scripts ao objeto exercicio e exibir na lista
-
-[ok]Começar a trabalhar no cadastro
-    Coletar dados dos inputs e salvar no BD
-    Exibir os dados coletados na lista
-
-[ok]Criar service
-
-[ok]Criar conexão com Firebase
-    Mudar o service para trabalhar com o Firebase
-
-Trabalhar com o restApi
-
-Usar API externa
-
-"""
-
 exercicios = [
     {
         'nome':'freio em T', 
@@ -104,7 +80,12 @@ class TelaListaExercicios(MDScreen):
                     text = ex.nome,
                     secondary_text = ex.descricao
                 )
-                exercicio_item.add_widget(ImageLeftWidget(source = ex.urlImagem))
+                url_imagem = ''
+                if (ex.urlImagem == ''):
+                    url_imagem = 'view\images\patins.png'
+                else:
+                    url_imagem = ex.urlImagem
+                exercicio_item.add_widget(ImageLeftWidget(source = url_imagem))
                 self.ids.container.add_widget(exercicio_item)
 
         except Exception as e:

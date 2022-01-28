@@ -12,57 +12,70 @@
             title: 'Fale Conosco'
             left_action_items: [['arrow-left', lambda x: root.irParaLista()]]
 
-        MDLabel:
-            text: "Dúvidas? Elogios? Sugestões? Sua opinião é muito importante para nós"
-            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
-        
-        MDTextField:
-            id: email
-            hint_text: 'Seu endereço de email'
-            helper_text: 'Campo obrigatório'
-            helper_text_mode: 'on_focus'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
-            size_hint_x: None
-            width: 300
-            required: True
-        
-        MDTextField:
-            id: assunto
-            hint_text: 'Assunto'
-            helper_text: 'Campo obrigatório'
-            helper_text_mode: 'on_focus'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
-            size_hint_x: None
-            width: 300
-            required: True
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 10
 
-        MDTextField:
-            id: mensagem
-            multiline: True
-            hint_text: 'Mensagem'
-            helper_text: 'Campo obrigatório'
-            helper_text_mode: 'on_focus'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-            size_hint_x: None
-            width: 300
-            required: True
+            MDLabel:
+                text: "Dúvidas? Elogios? Sugestões? Sua opinião é muito importante para nós"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            
+            MDTextField:
+                id: email
+                hint_text: 'Seu endereço de email'
+                helper_text: 'Campo obrigatório'
+                helper_text_mode: 'on_focus'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+                size_hint_x: None
+                width: 300
+                required: True
+            
+            MDTextField:
+                id: assunto
+                hint_text: 'Assunto'
+                helper_text: 'Campo obrigatório'
+                helper_text_mode: 'on_focus'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+                size_hint_x: None
+                width: 300
+                required: True
 
-        MDLabel:
-            text: ''
-            id: texto_info
-            pos_hint: {'center_x': 0.7,'center_y': 0.4}
+            MDTextField:
+                id: mensagem
+                multiline: True
+                hint_text: 'Mensagem'
+                helper_text: 'Campo obrigatório'
+                helper_text_mode: 'on_focus'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint_x: None
+                width: 300
+                required: True
 
-        BoxLayout:
-            orientation: 'horizontal'
-            padding: 40
-            spacing: 80
+            MDLabel:
+                id: texto_info
+                text: ''
+                theme_text_color: 'Error'
+                pos_hint: {'center_x': 0.7,'center_y': 0.4}
+            
+            MDSpinner:
+                id: spinner
+                size_hint: None, None
+                size: dp(46), dp(46)
+                pos_hint: {'center_x': .5, 'center_y': 0.4}
+                active: False
 
-            MDRectangleFlatButton:
-                text: 'Enviar'
-                on_press: root.enviarEmail()
+            BoxLayout:
+                orientation: 'horizontal'
+                padding: 40
+                spacing: 80
 
-            MDRectangleFlatButton:
-                text: 'Cancelar'
-                on_press: root.irParaLista()
+                MDRectangleFlatButton:
+                    text: 'Enviar'
+                    on_press: root.enviarEmail()
 
-        Widget:
+                MDRectangleFlatButton:
+                    text: 'Cancelar'
+                    on_press: root.irParaLista()
+
+            Widget:
