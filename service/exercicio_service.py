@@ -4,8 +4,8 @@ from database.mysql.dao_mysql import MySqlDatabase
 
 class ExercicioService():
     def __init__(self):
-        self.dao = SqliteDatabase()
-        # self.dao = RTFirebase()
+        # self.dao = SqliteDatabase()
+        self.dao = RTFirebase()
         # self.dao = MySqlDatabase()
 
     def listar(self):

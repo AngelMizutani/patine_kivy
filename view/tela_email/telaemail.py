@@ -38,10 +38,12 @@ class TelaEmail(MDScreen):
                 self.ids.spinner.active = True
 
                 #Configuração
-                host = 'smtp.gmail.com'
+                #dados salvos em arquivo local
+                #procurar na pasta dados sensiveis/email
+                host = ''
                 port = 587
-                user = 'testeemailpw21@gmail.com'
-                password = '123teste456'
+                user = ''
+                password = ''
 
                 #Criando objeto
                 label.text = 'Criando objeto servidor...'
@@ -68,8 +70,6 @@ class TelaEmail(MDScreen):
 
                 self.ids.spinner.active = False
                 label.text = 'Mensagem enviada com sucesso!'
-                label.theme_text_color = 'Custom'
-                label.text_color = 0, 1, 0, 1
                 server.quit()
 
                 self.email_text.text = ''
